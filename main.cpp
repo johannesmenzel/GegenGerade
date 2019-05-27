@@ -79,8 +79,8 @@ public:
     
     void Process() {
         if (!mIsFinished) {
-            mResult[0] = std::max(GenerateValues(GOALSPERTEAM * ((double)mTeams[0].GetAttack() / (double)mTeams[1].GetDefense()), GOALSPERTEAM_STDDEV), 0);
-            mResult[1] = std::max(GenerateValues(GOALSPERTEAM * ((double)mTeams[1].GetAttack() / (double)mTeams[0].GetDefense()), GOALSPERTEAM_STDDEV), 0);
+            mResult[0] = std::max(GenerateValues(GOALSPERTEAM * ((double)mTeams[0].GetTeamProperties(kAttack) / (double)mTeams[1].GetTeamProperties(kDefense)), GOALSPERTEAM_STDDEV), 0);
+            mResult[1] = std::max(GenerateValues(GOALSPERTEAM * ((double)mTeams[1].GetTeamProperties(kAttack) / (double)mTeams[0].GetTeamProperties(kDefense)), GOALSPERTEAM_STDDEV), 0);
             mIsFinished = true;
         }
     }
